@@ -75,3 +75,21 @@ Then run pprof tool the same way:
 ```
 $ go tool pprof -http 127.0.0.1:8080 mem.out
 ```
+
+## Tracing
+
+Another useful tool is `trace`. It allows to look at your code execution timeline with nanosecond resolution. It is very useful to investigate allocation and garbage collector related issues.
+
+One way to enable trace is to import `"runtime/trace"` and enable trace manually in the code. Also `"net/http/trace"` has a dedicated `/debug/pprof/trace` endpoint. Last and not least you can pass `-trace` flag to `go test` command. Let's do just excactly that:
+
+```
+$ go test -trace trace.out -bench . .
+```
+
+Now our test (in our case it is a benchmark) has generated a trace file, we can analyze it:
+
+```
+$ go tool trace trace.out
+```
+
+This will launch the browser where you can take a look at your trace.
