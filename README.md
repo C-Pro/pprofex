@@ -1,6 +1,6 @@
 # Go profiling example
 
-*Sample code I use for Go performance profiling talk.*
+*Sample code I use for Go performance profiling talk. Code is unoptimized on purpose.*
 
 Here we have a sample go application that creates a "blockchain" in memory, by generating random blocks and hashing their data together with previous block's hash.
 The domain of the application is not important, what is important is that it involves a lot of allocations and computations that we can inspect using go `pprof` tool.
