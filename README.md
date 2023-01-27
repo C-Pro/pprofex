@@ -5,7 +5,7 @@
 Here we have a sample go application that creates a "blockchain" in memory, by generating random blocks and hashing their data together with previous block's hash.
 The domain of the application is not important, what is important is that it involves a lot of allocations and computations that we can inspect using go `pprof` tool.
 
-Profiling starts by importing `	"runtime/pprof"` package (or `"net/http/pprof"` if you want to expose profiling endpoints via HTTP).
+Profiling starts by importing `"runtime/pprof"` package (or `"net/http/pprof"` if you want to expose profiling endpoints via HTTP).
 
 You can start CPU profiling at any time, and profile will be written to the file until tracing is stopped. Memory profile works buy saving momentarily snapshots.
 In both cases you need to take care to create a file to store the trace, and close it after tracing is finished.
